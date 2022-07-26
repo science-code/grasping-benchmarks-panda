@@ -2,8 +2,6 @@
 
 ## In a nutshell
 
-> _"Jeez, I wish I hadn't chosen to benchmark all these grasping algorithms"_ - probably you, right now
-
 In robotics, it is often useful to try different grasp planners on the same task. At any given time, simply looking at the most promising and cited approaches brings up a good handful of well-performing pieces of work. Users might want to try out a few of these for different purposes, for instance benchmarking or finding the best performing approach for a specific task. Grasping pipelines are, however, usually quite articulated and complex and users will find themselves knee-deep in a puddle of missing dependencies, lack of interface standardization and middleware support.
 
 ## Overview
@@ -43,7 +41,7 @@ So far, this repo includes support for:
 
 
 ## How to install
-Python 2.X is dead, long live Python 2.X. We only use **Python3** here.
+We only use **Python3** here.
 
 ### grasping_benchmarks
 Follow these instructions if you want to install only the python package without the ROS framework.
@@ -67,7 +65,7 @@ Follow these instructions if you want to install only the python package without
     ```
 
 ### grasping_benchmarks_ros
-Follow these instructions if you want to install also the ROS (no ROS2 yet, sorry) framework. In order to install and use this module, you need to include it in a catkin workspace.
+Follow these instructions if you want to install also the ROS 1 (no ROS2 yet, sorry) framework. In order to install and use this module, you need to include it in a catkin workspace.
 
 1. Install python3 ROS packages:
     ```bashrc
@@ -108,7 +106,7 @@ Follow these instructions if you want to install also the ROS (no ROS2 yet, sorr
     - **Superquadrics-based grasp planner**: Follow [superquadric-lib](https://github.com/robotology/superquadric-lib). Note that you need to compile the python bindings.
     - **6DoF-GraspNet**: We used [this PyTorch implementation](https://github.com/jsll/pytorch_6dof-graspnet).
 
-7. You will need a package to move the robot and execute motion primitives such as movement and grasps. We do this with ROS and the MoveIt! stack. If you use ROS, you can borrow our stuff. You will need a Python2 (not quite dead yet, I guess) catkin workspace and a [MoveIt!](http://docs.ros.org/melodic/api/moveit_tutorials/html/index.html) installation where to compile the  [panda_grasp_server](https://github.com/hsp-panda/panda_grasp_server) + [panda_ros_common](https://github.com/hsp-panda/panda_ros_common) packages. If you use different tools and/or middlewares (I am looking at you, [YARP](http://www.yarp.it/git-master/index.html) gremlins) you are going to have to write your own.
+7. You will need a package to move the robot and execute motion primitives such as movement and grasps. We do this with ROS and the MoveIt! stack. If you use ROS, you can borrow our stuff. You will need a Python2 catkin workspace and a [MoveIt!](http://docs.ros.org/melodic/api/moveit_tutorials/html/index.html) installation where to compile the  [panda_grasp_server](https://github.com/hsp-panda/panda_grasp_server) + [panda_ros_common](https://github.com/hsp-panda/panda_ros_common) packages. If you use different tools and/or middlewares (e.g. [YARP](http://www.yarp.it/git-master/index.html)) you are going to have to write your own.
 
 8. Build the catkin workspace:
     ```bash
@@ -121,7 +119,7 @@ Follow these instructions if you want to install also the ROS (no ROS2 yet, sorr
     ```
 
 ### docker
-If you don't want to bother with manually setting everything up, we advise using our Docker images. We prepared one for each supported algorithm with everything already in place (except the motion planner, for now). You can build the Docker image for the approach of your choosing. If you are not familiar with Docker, take a lookie [here](https://github.com/hsp-panda/dockerfiles-panda). Install it, it's worth it. Afterwards:
+If you don't want to bother with manually setting everything up, we advise using our Docker images. We prepared one for each supported algorithm with everything already in place (except the motion planner, for now). You can build the Docker image for the approach of your choosing. If you are not familiar with Docker, see [here](https://github.com/hsp-panda/dockerfiles-panda). Install it. Afterwards:
 
 1. Clone the repository:
     ```bash
